@@ -15,7 +15,9 @@ Macro to have a device join a Webex, Zoom, GoogleMeet or Microsoft Teams meeting
 ## Installation/Configuration
 
 1. Load the Javascript code included in the auto_join.js file in this repository into a new Macro in the Macro editor of the Cisco Webex device you wish to use.
-2. Activate the macro
+2. Edit the macro and set the `HANGUP_ON_BOOKING_END` to true (default) if you want the macro to hang up the call when the meeting is scheduled to end.
+3. Also set the `VALIDATE_DESTINATION_BEFORE_HANGUP` to true (default) to make sure it hangs up the call that was initiated originally by the macro for the booking that started and not just any call. This validation only works for when the booking destination and the current call connected destination match, if there are any variants, it normalizes them for Webex meetings but not for other platforms. If you find the macro is not disconnecting calls it should, then you can set this to false to not due further validation.
+4. Activate the macro
 
 > If you are unfamiliar with Cisco Room device macros, [this](https://help.webex.com/en-us/np8b6m6/Use-of-Macros-with-Room-and-Desk-Devices-and-Webex-Boards) is a good article to get started.
 
